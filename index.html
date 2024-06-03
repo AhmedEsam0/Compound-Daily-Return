@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Daily Compound Interest | By: Ahmed Esam</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>أهلا بيك يا معلم</h1>
+      <h3>
+        طبعًا انت جاي هنا عشان تحسب الفلوس اللي معاك ممكن تطلعلك فايده كام يا
+        فقير
+      </h3>
+      <h3 id="fkra">
+        فكرة الموقع ببساطه هو حساب العائد اليومي التراكمي لنسبه سنويه ابتدائيه
+      </h3>
+      <p>يلا بينا ؟</p>
+    </header>
+    <main>
+      <video id="vid" src="Yala Beena.mp4" controls width="500px"></video>
+      <section id="form">
+        <div class="labels">
+          <label for="starting-balance">مبلغ الإيداع</label>
+          <label for="rate-percentage">النسبه السنويه</label>
+          <label for="number-of-days">عدد الايام التراكميه</label>
+        </div>
+        <div class="inputs">
+          <div style="position: relative">
+            <input
+              id="starting-balance"
+              type="text"
+              placeholder="Starting Balance"
+              autocomplete="off"
+              tabindex="1"
+            />
+            <div id="starting-balance-error" class="error-message">
+              Please enter a valid starting balance
+            </div>
+          </div>
+          <div style="position: relative">
+            <input
+              id="rate-percentage"
+              type="text"
+              placeholder="Annual Rate Percentage"
+              autocomplete="off"
+              tabindex="2"
+            />
+            <div id="rate-percentage-error" class="error-message">
+              Please enter a valid annual rate
+            </div>
+          </div>
+          <div style="position: relative">
+            <input
+              id="number-of-days"
+              type="text"
+              placeholder="Number of Days"
+              autocomplete="off"
+              tabindex="3"
+            />
+            <div id="number-of-days-error" class="error-message">
+              Please enter a valid number of days
+            </div>
+          </div>
+        </div>
+      </section>
+      <button
+        type="button"
+        tabindex="4"
+        id="btn"
+        class="primary-btn"
+        tabindex="4"
+      >
+        اتفضل احسب
+      </button>
+
+      <div id="div">
+        <a href="#output" id="a">
+          <span class="material-symbols-outlined" id="span">
+            stat_minus_2
+          </span>
+        </a>
+      </div>
+      <br /><br /><br />
+      <button id="back-to-top" onclick="scrollToTop()">
+        <span class="material-symbols-outlined"> stat_2 </span>
+      </button>
+      <button id="go-to-bottom" onclick="scrollToBottom()">
+        <span class="material-symbols-outlined"> stat_minus_3 </span>
+      </button>
+
+      <div id="output-container"></div>
+    </main>
+    <footer id="footer">
+      <p>All rights reserved &copy; 2024</p>
+      <p>Designed and developed by: Ahmed Esam</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

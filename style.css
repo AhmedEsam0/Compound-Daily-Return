@@ -1,0 +1,302 @@
+/* Existing CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  position: relative;
+}
+body::before {
+  content: "";
+  background-image: url("landing.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+body::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+header {
+  background-color: rgba(0, 0, 0, 0.09);
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+#fkra {
+  color: gold;
+}
+h1 {
+  padding: 15px;
+  color: aqua;
+}
+h3 {
+  color: #00ff00;
+  padding: 10px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 25px;
+}
+p {
+  font-size: 22px;
+  font-weight: 900;
+  color: lime;
+}
+@media (max-width: 350px) {
+  p {
+    font-size: 18px;
+  }
+}
+main {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+video {
+  border-radius: 10px;
+  margin: 20px;
+}
+#form {
+  width: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  backdrop-filter: blur(1px);
+}
+@media (max-width: 767px) {
+  video {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+  }
+  #form {
+    width: 100%;
+  }
+  input {
+    width: 75%;
+  }
+}
+.labels,
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+}
+label {
+  font-size: 20px;
+  color: #00ff00;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+label:nth-of-type(1) {
+  padding: 5px 0;
+}
+label:nth-of-type(2) {
+  padding-top: 2px;
+}
+label:nth-of-type(3) {
+  padding-top: 5px;
+}
+input {
+  height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.4s ease-in-out;
+}
+input:focus {
+  border: 1px solid gold;
+  box-shadow: 0 0 15px gold;
+}
+button {
+  outline: none;
+  border: none;
+  background-color: #10cab7;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.primary-btn {
+  margin: 35px auto;
+  display: block;
+}
+#output {
+  font-size: 22px;
+  color: red;
+  background-color: white;
+  padding: 10px;
+  line-height: 40px;
+}
+#value {
+  color: red;
+  font-weight: 900;
+  font-size: 30px;
+}
+#div {
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: none;
+}
+#a {
+  color: yellow;
+  text-decoration: none;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s linear;
+}
+#a:hover {
+  color: #00ccff;
+}
+#span {
+  animation: bouncing 1.5s infinite;
+  font-weight: 900;
+  font-size: 50px;
+}
+@keyframes bouncing {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-10px);
+  }
+}
+/* New CSS for back-to-top button */
+#back-to-top {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #10cab7;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 36px;
+  cursor: pointer;
+}
+#back-to-top span {
+  position: fixed;
+  bottom: 27px;
+  right: 28px;
+}
+#back-to-top:hover {
+  background-color: #00a89a;
+}
+/* New CSS for go-to-bottom button */
+#go-to-bottom {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 30px; /* Adjust to avoid overlap with back-to-top */
+  right: 20px;
+  display: none;
+  background-color: rgba(16, 202, 183, 0.65);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 36px;
+  cursor: pointer;
+}
+#go-to-bottom span {
+  position: fixed;
+  top: 40px;
+  right: 27.5px;
+}
+#go-to-bottom:hover {
+  background-color: #00a89a;
+}
+
+#output-container {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  margin: 20px;
+  line-height: 30px;
+  display: none;
+}
+@media (max-width: 767px) {
+  #output-container {
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 0.38px;
+  }
+}
+/* Footer CSS */
+#footer {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+
+#footer p {
+  margin-bottom: 5px;
+}
+@media (max-width: 435px) {
+  #footer p {
+    font-size: 15px;
+  }
+}
+#footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
+input.error {
+  border: 2px solid red;
+  box-shadow: 0 0 15px red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  left: -4px;
+
+  padding-top: 2px;
+
+  font-weight: bold;
+}
