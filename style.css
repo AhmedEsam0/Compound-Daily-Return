@@ -67,7 +67,7 @@ p {
   }
 }
 main {
-  padding: 20px;
+  padding: 15px;
   position: relative;
   z-index: 1;
 }
@@ -79,9 +79,8 @@ video {
   width: 500px;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  gap: 20px;
   backdrop-filter: blur(1px);
 }
 @media (max-width: 767px) {
@@ -92,8 +91,6 @@ video {
   }
   #form {
     width: 100%;
-    flex-direction: column;
-    gap: 10px;
   }
   input {
     width: 75%;
