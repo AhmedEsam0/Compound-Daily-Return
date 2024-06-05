@@ -118,7 +118,7 @@ input:focus {
   border: 1px solid gold;
   box-shadow: 0 0 15px gold;
 }
-@media (max-width: 767px) {
+@media (max-width: 500px) {
   video {
     width: 100%;
     margin: 0;
