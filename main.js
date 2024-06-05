@@ -96,6 +96,13 @@ inputFields.forEach((input) => {
   };
 });
 
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent form submission or other default actions
+    Btn.click();
+  }
+});
+
 Btn.onclick = function () {
   BtnClicked = true;
   let startingBalance = parseFormattedNumber(
@@ -109,6 +116,7 @@ Btn.onclick = function () {
   );
 
   let isValid = true;
+  let firstInvalidInput = null;
 
   // Validation
   inputFields.forEach((input) => {
@@ -116,6 +124,11 @@ Btn.onclick = function () {
     if (isNaN(value) || value <= 0) {
       input.classList.add("error");
       isValid = false;
+
+      // Focus on the first invalid input field
+      if (!firstInvalidInput) {
+        firstInvalidInput = input;
+      }
 
       // Show error message
       let errorMessage = input.nextElementSibling;
@@ -136,6 +149,11 @@ Btn.onclick = function () {
   });
 
   if (!isValid) {
+    // Focus on the first invalid input field
+    if (firstInvalidInput) {
+      firstInvalidInput.focus();
+    }
+
     goToBottomBtn.style.display = "none";
     backToTopBtn.style.display = "none";
     div.style.display = "none";
@@ -231,11 +249,11 @@ div.onclick = function () {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
+backToTopBtn.addEventListener("click", scrollToTop);
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 }
-
+goToBottomBtn.addEventListener("click", scrollToBottom);
 window.addEventListener("scroll", function () {
   // Check if user has scrolled to the bottom of the page and the window width is under 520px
   if (
