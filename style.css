@@ -112,7 +112,7 @@ input {
   border-radius: 5px;
   padding: 10px;
   transition: all 0.4s ease-in-out;
-  width: 110%;
+  width: 105%;
 }
 input:focus {
   border: 1px solid gold;
