@@ -76,39 +76,27 @@ video {
   margin: 20px;
 }
 #form {
-  margin-top:35px;
-  margin-bottom:40px;
   width: 500px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   backdrop-filter: blur(1px);
 }
-@media (max-width: 767px) {
-  video {
-    width: 100%;
-    margin: 0;
-    padding: 5px;
-  }
-  #form {
-    width: 100%;
-  }
-  input {
-    width: 75%;
-  }
-}
 .labels,
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
   justify-content: center;
   align-items: flex-start;
-  height:150px;
+  height: 150px;
 }
-.labels{
-  justify-content:space-around;
+.labels {
+  justify-content: space-around;
 }
 label {
   font-size: 20px;
@@ -123,10 +111,27 @@ input {
   border-radius: 5px;
   padding: 10px;
   transition: all 0.4s ease-in-out;
+  width: 110%;
 }
 input:focus {
   border: 1px solid gold;
   box-shadow: 0 0 15px gold;
+}
+@media (max-width: 767px) {
+  video {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+  }
+  #form {
+    width: 100%;
+  }
+  
+}
+@media (max-width: 400px){
+  input {
+    width: 75%;
+  }
 }
 button {
   outline: none;
@@ -287,12 +292,10 @@ input.error {
 
 .error-message {
   color: red;
-  font-size: 12px;
+  /* font-size: 12px; */
   display: none;
   position: absolute;
   left: -4px;
-
   padding-top: 2px;
-
-  font-weight: bold;
+  /* font-weight: bold; */
 }
