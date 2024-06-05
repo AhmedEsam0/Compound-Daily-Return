@@ -103,7 +103,7 @@ video {
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   justify-content: center;
   align-items: flex-start;
 }
