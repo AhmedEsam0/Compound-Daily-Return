@@ -79,8 +79,9 @@ video {
   width: 500px;
   margin: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px;
   backdrop-filter: blur(1px);
 }
 @media (max-width: 767px) {
@@ -91,6 +92,8 @@ video {
   }
   #form {
     width: 100%;
+    flex-direction: column;
+    gap: 10px;
   }
   input {
     width: 75%;
@@ -100,25 +103,15 @@ video {
 .inputs {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 10px;
   justify-content: center;
-  align-items: center;
-  min-height: 120px;
+  align-items: flex-start;
 }
 label {
   font-size: 20px;
   color: #00ff00;
   font-weight: 600;
   letter-spacing: 0.5px;
-}
-label:nth-of-type(1) {
-  padding: 5px 0;
-}
-label:nth-of-type(2) {
-  padding-top: 2px;
-}
-label:nth-of-type(3) {
-  padding-top: 5px;
 }
 input {
   height: 30px;
