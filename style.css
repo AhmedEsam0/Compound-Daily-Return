@@ -76,6 +76,8 @@ video {
   margin: 20px;
 }
 #form {
+  margin-top:35px;
+  margin-bottom:40px;
   width: 500px;
   margin: auto;
   display: flex;
@@ -103,6 +105,10 @@ video {
   gap: 30px;
   justify-content: center;
   align-items: flex-start;
+  height:150px;
+}
+.labels{
+  justify-content:space-around;
 }
 label {
   font-size: 20px;
