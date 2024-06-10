@@ -67,7 +67,7 @@ p {
   }
 }
 main {
-  padding: 10px;
+  padding: 15px;
   position: relative;
   z-index: 1;
 }
@@ -86,7 +86,6 @@ video {
   align-items: center;
   backdrop-filter: blur(1px);
 }
-
 .labels,
 .inputs {
   display: flex;
@@ -114,11 +113,16 @@ input {
   transition: all 0.4s ease-in-out;
   width: 110%;
 }
+@media (max-width: 400px) {
+  input {
+    width: 80%;
+  }
+}
 input:focus {
   border: 1px solid gold;
   box-shadow: 0 0 15px gold;
 }
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   video {
     width: 100%;
     margin: 0;
@@ -126,12 +130,6 @@ input:focus {
   }
   #form {
     width: 100%;
-  }
-  
-}
-@media (max-width: 750px){
-  input {
-    width: 75%;
   }
 }
 button {
@@ -148,11 +146,6 @@ button {
 .primary-btn {
   margin: 35px auto;
   display: block;
-}
-@media(max-width:450px){
-  .primary-btn{
-    margin:55px auto;
-  }
 }
 #output {
   font-size: 22px;
