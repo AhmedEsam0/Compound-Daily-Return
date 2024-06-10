@@ -111,7 +111,7 @@ input {
   border-radius: 5px;
   padding: 10px;
   transition: all 0.4s ease-in-out;
-  width: 108%;
+  width: 105%;
 }
 @media (max-width: 400px) {
   input {
