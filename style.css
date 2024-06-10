@@ -129,7 +129,7 @@ input:focus {
   }
   
 }
-@media (max-width: 580px){
+@media (max-width: 750px){
   input {
     width: 75%;
   }
