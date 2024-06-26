@@ -75,8 +75,15 @@ video {
   border-radius: 10px;
   margin: 20px;
 }
-#form {
-  width: 500px;
+.holder {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+.holder #form {
+  width: calc(50% - 15px);
   margin-left: auto;
   margin-right: auto;
   margin-top: 35px;
@@ -84,7 +91,7 @@ video {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  backdrop-filter: blur(1px);
+  border-radius: 7px;
 }
 .labels,
 .inputs {
@@ -93,7 +100,7 @@ video {
   gap: 40px;
   justify-content: center;
   align-items: flex-start;
-  height: 150px;
+  /* height: 150px; */
 }
 .labels {
   justify-content: space-around;
@@ -113,11 +120,11 @@ input {
   transition: all 0.4s ease-in-out;
   width: 100%;
 }
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   input {
     width: 80%;
   }
-}
+} */
 input:focus {
   border: 1px solid gold;
   box-shadow: 0 0 15px gold;
@@ -142,9 +149,10 @@ button {
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
+  scale: 1.25;
 }
 .primary-btn {
-  margin: 35px auto;
+  margin: 60px auto;
   display: block;
 }
 #output {
@@ -197,7 +205,7 @@ button {
   width: 40px;
   height: 40px;
   position: fixed;
-  bottom: 20px;
+  bottom: 100px;
   right: 20px;
   display: none;
   background-color: #10cab7;
@@ -210,8 +218,8 @@ button {
 }
 #back-to-top span {
   position: fixed;
-  bottom: 27px;
-  right: 28px;
+  bottom: 8px;
+  right: 8px;
 }
 #back-to-top:hover {
   background-color: #00a89a;
@@ -221,7 +229,7 @@ button {
   width: 40px;
   height: 40px;
   position: fixed;
-  top: 30px; /* Adjust to avoid overlap with back-to-top */
+  bottom: 30px; /* Adjust to avoid overlap with back-to-top */
   right: 20px;
   display: none;
   background-color: rgba(16, 202, 183, 0.65);
@@ -234,8 +242,8 @@ button {
 }
 #go-to-bottom span {
   position: fixed;
-  top: 40px;
-  right: 27.5px;
+  top: 8px;
+  right: 8px;
 }
 #go-to-bottom:hover {
   background-color: #00a89a;
@@ -297,4 +305,187 @@ input.error {
   left: -4px;
   padding-top: 2px;
   /* font-weight: bold; */
+}
+/* Currency Converter */
+
+.container {
+  background-color: rgba(255, 255, 255, 0.85);
+  /* margin: 75px auto; */
+  width: calc(50% - 15px);
+  padding: 50px 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  max-width: 750px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+  backdrop-filter: blur(1px);
+  text-align: center;
+  display: none;
+}
+
+.container h1 {
+  font-size: 50px;
+  color: #455bb1;
+  margin-bottom: 20px;
+}
+.container p {
+  color: #333;
+}
+.currency-section {
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  max-width: 550px;
+}
+
+.currency-section input {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-size: 18px;
+  border-right: 1px solid #aaa;
+  height: 42px;
+}
+.currency-section input:focus {
+  box-shadow: 0 0 7px #888;
+}
+
+.currency-section select {
+  border: none;
+  outline: none;
+  padding: 10px 20px 10px 10px;
+  font-size: 18px;
+  text-align: right;
+  height: 42px;
+  background-color: #f9f9f9;
+}
+
+.swap {
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #455bb1;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.swap:hover {
+  background-color: #334799;
+}
+
+.bx {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.rate-container p {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.rate-container h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+#toggle-button {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(1px);
+  color: #455bb1;
+}
+#toggle-button i {
+  font-size: 18px;
+}
+@media(min-width:319px) and (max-width:374px){
+  .container .currency-section select{
+    padding: 0;
+    font-size: 12px;
+    width: 160%;
+    max-width: calc(100% - 15px);
+  }
+  #toggle-button{
+    scale: 1.1;
+  }
+  #back-to-top,#go-to-bottom{
+    right: 10px;
+  }
+}
+@media(min-width:375px){
+  .container .currency-section select{
+    padding: 0;
+    font-size: 14px;
+    width: 111%;
+    max-width: calc(100% - 15px);
+  }
+}
+@media (max-width: 767px) {
+  .holder{
+    flex-direction: column-reverse;
+  }
+  .container{
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+  }
+  .container h1{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+  }
+  .container .currency-section{
+    width: 100%;
+  }
+  
+  .container .currency-section select{
+    padding: 5px 10px 5px 5px;
+    font-size: 12px;
+    width: 175%;
+    max-width: calc(100% - 15px);
+  }
+  .holder #form{
+    margin: 0;
+    width: 100%;
+  }
+  #toggle-button-div{
+    margin-top:50px ;
+  }
+  
+}
+@media(min-width:768px){
+  .container{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .container h1{
+    padding: 0;
+    font-size: 35px;
+    width: 100%;
+  }
+  .container .currency-section{
+    padding: 0;
+    width: calc(100% - 25px);
+  }
+}
+@media (min-width: 1440px) {
+  #toggle-button-div {
+    text-align: left;
+  }
+  #toggle-button {
+    margin-left: 100px;
+    margin-top: 50px;
+  }
 }

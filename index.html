@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <title>Daily Compound Interest | By: Ahmed Esam</title>
@@ -25,51 +29,203 @@
     </header>
     <main>
       <video id="vid" src="Yalaa Beenaa.mp4" controls width="600px"></video>
-      <section id="form">
-        <div class="labels">
-          <label for="starting-balance">مبلغ الإيداع</label>
-          <label for="rate-percentage">النسبه السنويه</label>
-          <label for="number-of-days">عدد الايام التراكميه</label>
+      <div id="toggle-button-div">
+        <button id="toggle-button" dir="ltr">
+          Currency Converter &nbsp;<i
+            class="bx bx-caret-down-circle"
+            id="arrow-down"
+          ></i>
+        </button>
+      </div>
+      <div class="holder">
+        <div id="form">
+          <div class="labels">
+            <label for="starting-balance">مبلغ الإيداع</label>
+            <label for="rate-percentage">النسبه السنويه</label>
+            <label for="number-of-days">عدد الايام التراكميه</label>
+          </div>
+          <div class="inputs">
+            <div style="position: relative">
+              <input
+                id="starting-balance"
+                type="text"
+                placeholder="Starting Balance"
+                autocomplete="off"
+                tabindex="1"
+              />
+              <div id="starting-balance-error" class="error-message">
+                <h5>Enter a valid Starting Balance</h5>
+              </div>
+            </div>
+            <div style="position: relative">
+              <input
+                id="rate-percentage"
+                type="text"
+                placeholder="Annual Rate"
+                autocomplete="off"
+                tabindex="2"
+              />
+              <div id="rate-percentage-error" class="error-message">
+                <h5>Enter a valid Annual Rate</h5>
+              </div>
+            </div>
+            <div style="position: relative">
+              <input
+                id="number-of-days"
+                type="text"
+                placeholder="Number of Days"
+                autocomplete="off"
+                tabindex="3"
+              />
+              <div id="number-of-days-error" class="error-message">
+                <h5>Enter a valid number of days</h5>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="inputs">
-          <div style="position: relative">
+        <div class="container" dir="ltr" id="container">
+          <h1>Currency Converter</h1>
+
+          <div class="currency-section">
             <input
-              id="starting-balance"
-              type="text"
-              placeholder="Starting Balance"
-              autocomplete="off"
-              tabindex="1"
+              type="number"
+              placeholder="0"
+              value="1"
+              class="from-amount"
+              id="from-amount"
             />
-            <div id="starting-balance-error" class="error-message">
-              <h5>Enter a valid Starting Balance</h5>
-            </div>
+            <select class="from-currency" id="from-currency">
+              <option value="AED">Emirates Dirham</option>
+              <option value="AFN">Afghan Afghani</option>
+              <option value="ARS">Argentine Peso</option>
+              <option value="AUD">Australian Dollar</option>
+              <option value="BDT">Bangladeshi Taka</option>
+              <option value="BGN">Bulgarian Lev</option>
+              <option value="BRL">Brazilian Real</option>
+              <option value="BSD">Bahamian Dollar</option>
+              <option value="CAD">Canadian Dollar</option>
+              <option value="CHF">Swiss Franc</option>
+              <option value="CLP">Chilean Peso</option>
+              <option value="CNY">Chinese Yuan</option>
+              <option value="COP">Colombian Peso</option>
+              <option value="CZK">Czech Koruna</option>
+              <option value="DKK">Danish Krone</option>
+              <option value="DOP">Dominican Peso</option>
+              <option value="EGP">Egyptian Pound</option>
+              <option value="EUR">Euro</option>
+              <option value="FJD">Fijian Dollar</option>
+              <option value="GBP">British Pound</option>
+              <option value="GTQ">Guatemalan Quetzal</option>
+              <option value="HKD">Hong Kong Dollar</option>
+              <option value="HRK">Croatian Kuna</option>
+              <option value="HUF">Hungarian Forint</option>
+              <option value="IDR">Indonesian Rupiah</option>
+              <option value="ILS">Israeli New Shekel</option>
+              <option value="INR">Indian Rupee</option>
+              <option value="ISK">Icelandic Krona</option>
+              <option value="JPY">Japanese Yen</option>
+              <option value="KRW">South Korean Won</option>
+              <option value="KZT">Kazakhstani Tenge</option>
+              <option value="MXN">Mexican Peso</option>
+              <option value="MYR">Malaysian Ringgit</option>
+              <option value="NOK">Norwegian Krone</option>
+              <option value="NPR">Nepalese Rupee</option>
+              <option value="NZD">New Zealand Dollar</option>
+              <option value="PAB">Panamanian Balboa</option>
+              <option value="PEN">Peruvian Nuevo Sol</option>
+              <option value="PHP">Philippine Peso</option>
+              <option value="PKR">Pakistani Rupee</option>
+              <option value="PLN">Polish Zloty</option>
+              <option value="PYG">Paraguayan Guarani</option>
+              <option value="RON">Romanian Leu</option>
+              <option value="RUB">Russian Ruble</option>
+              <option value="SAR">Saudi Riyal</option>
+              <option value="LKR">Sri Lankan Rupee</option>
+              <option value="SEK">Swedish Krona</option>
+              <option value="SGD">Singapore Dollar</option>
+              <option value="THB">Thai Baht</option>
+              <option value="TRY">Turkish Lira</option>
+              <option value="TWD">Taiwan New Dollar</option>
+              <option value="UAH">Ukrainian Hryvnia</option>
+              <option value="USD" selected>US Dollar</option>
+              <option value="UYU">Uruguayan Peso</option>
+              <option value="VND">Vietnamese Dong</option>
+              <option value="ZAR">South African Rand</option>
+            </select>
           </div>
-          <div style="position: relative">
+          <button class="swap"><i class="bx bx-refresh"></i></button>
+          <div class="currency-section">
             <input
-              id="rate-percentage"
-              type="text"
-              placeholder="Annual Rate"
-              autocomplete="off"
-              tabindex="2"
+              type="number"
+              placeholder="0"
+              value="1"
+              class="to-amount"
+              id="to-amount"
             />
-            <div id="rate-percentage-error" class="error-message">
-              <h5>Enter a valid Annual Rate</h5>
-            </div>
+            <select class="to-currency" id="to-currency">
+              <option value="AED">Emirates Dirham</option>
+              <option value="AFN">Afghan Afghani</option>
+              <option value="ARS">Argentine Peso</option>
+              <option value="AUD">Australian Dollar</option>
+              <option value="BDT">Bangladeshi Taka</option>
+              <option value="BGN">Bulgarian Lev</option>
+              <option value="BRL">Brazilian Real</option>
+              <option value="BSD">Bahamian Dollar</option>
+              <option value="CAD">Canadian Dollar</option>
+              <option value="CHF">Swiss Franc</option>
+              <option value="CLP">Chilean Peso</option>
+              <option value="CNY">Chinese Yuan</option>
+              <option value="COP">Colombian Peso</option>
+              <option value="CZK">Czech Koruna</option>
+              <option value="DKK">Danish Krone</option>
+              <option value="DOP">Dominican Peso</option>
+              <option value="EGP" selected>Egyptian Pound</option>
+              <option value="EUR">Euro</option>
+              <option value="FJD">Fijian Dollar</option>
+              <option value="GBP">British Pound</option>
+              <option value="GTQ">Guatemalan Quetzal</option>
+              <option value="HKD">Hong Kong Dollar</option>
+              <option value="HRK">Croatian Kuna</option>
+              <option value="HUF">Hungarian Forint</option>
+              <option value="IDR">Indonesian Rupiah</option>
+              <option value="ILS">Israeli New Shekel</option>
+              <option value="INR">Indian Rupee</option>
+              <option value="ISK">Icelandic Krona</option>
+              <option value="JPY">Japanese Yen</option>
+              <option value="KRW">South Korean Won</option>
+              <option value="KZT">Kazakhstani Tenge</option>
+              <option value="MXN">Mexican Peso</option>
+              <option value="MYR">Malaysian Ringgit</option>
+              <option value="NOK">Norwegian Krone</option>
+              <option value="NPR">Nepalese Rupee</option>
+              <option value="NZD">New Zealand Dollar</option>
+              <option value="PAB">Panamanian Balboa</option>
+              <option value="PEN">Peruvian Nuevo Sol</option>
+              <option value="PHP">Philippine Peso</option>
+              <option value="PKR">Pakistani Rupee</option>
+              <option value="PLN">Polish Zloty</option>
+              <option value="PYG">Paraguayan Guarani</option>
+              <option value="RON">Romanian Leu</option>
+              <option value="RUB">Russian Ruble</option>
+              <option value="SAR">Saudi Riyal</option>
+              <option value="LKR">Sri Lankan Rupee</option>
+              <option value="SEK">Swedish Krona</option>
+              <option value="SGD">Singapore Dollar</option>
+              <option value="THB">Thai Baht</option>
+              <option value="TRY">Turkish Lira</option>
+              <option value="TWD">Taiwan New Dollar</option>
+              <option value="UAH">Ukrainian Hryvnia</option>
+              <option value="USD">US Dollar</option>
+              <option value="UYU">Uruguayan Peso</option>
+              <option value="VND">Vietnamese Dong</option>
+              <option value="ZAR">South African Rand</option>
+            </select>
           </div>
-          <div style="position: relative">
-            <input
-              id="number-of-days"
-              type="text"
-              placeholder="Number of Days"
-              autocomplete="off"
-              tabindex="3"
-            />
-            <div id="number-of-days-error" class="error-message">
-              <h5>Enter a valid number of days</h5>
-            </div>
-          </div>
+
+          <div class="rate-container"></div>
         </div>
-      </section>
+      </div>
+
       <button
         type="button"
         tabindex="4"
@@ -89,7 +245,7 @@
       </div>
       <br /><br /><br />
       <button id="back-to-top">
-        <span class="material-symbols-outlined"> stat_2 </span>
+        <span class="material-symbols-outlined"> stat_3 </span>
       </button>
       <button id="go-to-bottom">
         <span class="material-symbols-outlined"> stat_minus_3 </span>

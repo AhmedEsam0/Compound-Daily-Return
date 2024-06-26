@@ -7,6 +7,9 @@ let goToBottomBtn = document.getElementById("go-to-bottom");
 let backToTopBtn = document.getElementById("back-to-top");
 
 function calculateInterest(startingBalance, annualRate, numberOfDays) {
+  let initialStartingBalance = parseFormattedNumber(
+    document.getElementById("starting-balance").value
+  );
   let dailyRate = annualRate / (100 * 365);
   let totalInterest = 0;
   outputContainer.innerHTML = ""; // Clear existing content
@@ -20,6 +23,7 @@ function calculateInterest(startingBalance, annualRate, numberOfDays) {
       .toFixed(2)
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
     paragraph.style.color = "red";
+    paragraph.style.marginTop = "8px";
 
     let paragraph2 = document.createElement("p");
     paragraph2.innerHTML = `:Total return after day ${i}<br>${totalInterest
@@ -27,8 +31,16 @@ function calculateInterest(startingBalance, annualRate, numberOfDays) {
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
     paragraph2.style.color = "darkgreen";
 
+    let paragraph3 = document.createElement("p");
+    paragraph3.innerHTML = ` :Total Account Balance<br>${(
+      initialStartingBalance + totalInterest
+    )
+      .toFixed(2)
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+    paragraph3.style.color="black";
     outputContainer.appendChild(paragraph);
     outputContainer.appendChild(paragraph2);
+    outputContainer.appendChild(paragraph3);
 
     let hr = document.createElement("hr");
     hr.style.margin = "5px auto";
@@ -56,7 +68,7 @@ function calculateInterest(startingBalance, annualRate, numberOfDays) {
 
 function formatNumberWithCommas(value) {
   if (!isNaN(value) && value !== "") {
-    let parts = value.split(".");
+    let parts = value.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
   }
@@ -69,6 +81,11 @@ function parseFormattedNumber(value) {
 
 inputFields.forEach((input) => {
   input.oninput = function () {
+    // Skip formatting for currency converter input fields
+    if (this.id === "from-amount" || this.id === "to-amount") {
+      return;
+    }
+
     // Allow only numbers and a single dot
     let cursorPosition = this.selectionStart;
     let originalValue = this.value;
@@ -105,6 +122,7 @@ document.addEventListener("keydown", function (event) {
 
 Btn.onclick = function () {
   BtnClicked = true;
+
   let startingBalance = parseFormattedNumber(
     document.getElementById("starting-balance").value
   );
@@ -135,7 +153,6 @@ Btn.onclick = function () {
       if (!errorMessage || !errorMessage.classList.contains("error-message")) {
         errorMessage = document.createElement("div");
         errorMessage.classList.add("error-message");
-        errorMessage.textContent = "الرجاء إدخال قيمة صالحة";
         input.parentNode.insertBefore(errorMessage, input.nextSibling);
       }
       errorMessage.style.display = "block";
@@ -269,3 +286,89 @@ window.addEventListener("scroll", function () {
     backToTopBtn.style.color = "rgba(255,255,255,1)";
   }
 });
+
+// Toggle button
+const toggleButton = document.getElementById("toggle-button");
+const converterContainer = document.getElementById("container");
+const arrowDown = document.getElementById("arrow-down");
+toggleButton.addEventListener("click", () => {
+  if (converterContainer.style.display === "flex") {
+    converterContainer.style.display = "none";
+    arrowDown.style.rotate = "0deg";
+  } else {
+    converterContainer.style.display = "flex";
+    arrowDown.style.rotate = "180deg";
+  }
+});
+// Currency Converter
+const fromAmountEl = document.getElementById("from-amount");
+const fromCurrencyEl = document.getElementById("from-currency");
+const toAmountEl = document.getElementById("to-amount");
+const toCurrencyEl = document.getElementById("to-currency");
+const swapButtonEl = document.querySelector(".swap");
+const rateContainerEl = document.querySelector(".rate-container");
+
+let conversionRates = {};
+
+async function fetchRates(fromCurr) {
+  const response = await fetch(
+    `https://v6.exchangerate-api.com/v6/1469b81e4f01a05326bfe467/latest/${fromCurr}`
+  );
+  const data = await response.json();
+  conversionRates[fromCurr] = data.conversion_rates;
+}
+
+async function calculate() {
+  let fromCurr = fromCurrencyEl.value;
+  let toCurr = toCurrencyEl.value;
+
+  if (!conversionRates[fromCurr]) {
+    await fetchRates(fromCurr);
+  }
+
+  const rate = conversionRates[fromCurr][toCurr];
+  if (fromAmountEl.value) {
+    toAmountEl.value = (fromAmountEl.value * rate).toFixed(2);
+  }
+
+  rateContainerEl.innerHTML = `
+    <p>1 ${fromCurr} = ${rate.toFixed(5)} ${toCurr}</p>
+    <p>1 ${toCurr} = ${(1 / rate).toFixed(5)} ${fromCurr}</p>
+    <h2>${fromAmountEl.value} ${fromCurr} = ${toAmountEl.value} ${toCurr}</h2>
+    `;
+}
+
+async function reverseCalculate() {
+  let fromCurr = fromCurrencyEl.value;
+  let toCurr = toCurrencyEl.value;
+
+  if (!conversionRates[fromCurr]) {
+    await fetchRates(fromCurr);
+  }
+
+  const rate = conversionRates[fromCurr][toCurr];
+  if (toAmountEl.value) {
+    fromAmountEl.value = (toAmountEl.value / rate).toFixed(2);
+  }
+
+  rateContainerEl.innerHTML = `
+    <p>1 ${fromCurr} = ${rate.toFixed(5)} ${toCurr}</p>
+    <p>1 ${toCurr} = ${(1 / rate).toFixed(5)} ${fromCurr}</p>
+    <h2>${toAmountEl.value} ${toCurr} = ${fromAmountEl.value} ${fromCurr}</h2>
+    `;
+}
+
+function swapCurrencies() {
+  let tempValue = fromCurrencyEl.value;
+  fromCurrencyEl.value = toCurrencyEl.value;
+  toCurrencyEl.value = tempValue;
+  calculate();
+}
+
+fromAmountEl.addEventListener("input", calculate);
+fromCurrencyEl.addEventListener("change", calculate);
+toAmountEl.addEventListener("input", reverseCalculate);
+toCurrencyEl.addEventListener("change", calculate);
+swapButtonEl.addEventListener("click", swapCurrencies);
+
+calculate();
