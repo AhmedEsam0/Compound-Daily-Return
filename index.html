@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,20 +17,30 @@
   </head>
   <body>
     <header>
-      <h1>أهلا بيك يا معلم</h1>
+      <h1>Compound Interest Calculator</h1>
       <h3>
-        طبعًا انت جاي هنا عشان تحسب الفلوس اللي معاك ممكن تطلعلك فايده كام يا
-        فقير
+        See how your savings and investment account balances can grow with the
+        magic of compound interest.
       </h3>
       <h3 id="fkra">
-        فكرة الموقع ببساطه هو حساب العائد اليومي التراكمي لنسبه سنويه ابتدائيه
+        The investing information provided on this page is for educational
+        purposes only.<br /><br>Does not offer advisory or brokerage services, nor
+        does it recommend or advise investors to buy or sell particular stocks,
+        securities or other investments.
       </h3>
-      <p>يلا بينا ؟</p>
+      <h2 id="compound-interest">What is compound interest?</h2>
+      <p>
+        Compound interest is the interest you earn on your original money and on
+        the interest that keeps accumulating. <br /><br>
+        <div>
+          Compound interest allows your savings to grow faster over time.
+        </div>
+      </p>
     </header>
     <main>
       <video id="vid" src="Yalaa Beenaa.mp4" controls width="600px"></video>
       <div id="toggle-button-div">
-        <button id="toggle-button" dir="ltr">
+        <button id="toggle-button">
           Currency Converter &nbsp;<i
             class="bx bx-caret-down-circle"
             id="arrow-down"
@@ -38,52 +48,7 @@
         </button>
       </div>
       <div class="holder">
-        <div id="form">
-          <div class="labels">
-            <label for="starting-balance">مبلغ الإيداع</label>
-            <label for="rate-percentage">النسبه السنويه</label>
-            <label for="number-of-days">عدد الايام التراكميه</label>
-          </div>
-          <div class="inputs">
-            <div style="position: relative">
-              <input
-                id="starting-balance"
-                type="text"
-                placeholder="Starting Balance"
-                autocomplete="off"
-                tabindex="1"
-              />
-              <div id="starting-balance-error" class="error-message">
-                <h5>Enter a valid Starting Balance</h5>
-              </div>
-            </div>
-            <div style="position: relative">
-              <input
-                id="rate-percentage"
-                type="text"
-                placeholder="Annual Rate"
-                autocomplete="off"
-                tabindex="2"
-              />
-              <div id="rate-percentage-error" class="error-message">
-                <h5>Enter a valid Annual Rate</h5>
-              </div>
-            </div>
-            <div style="position: relative">
-              <input
-                id="number-of-days"
-                type="text"
-                placeholder="Number of Days"
-                autocomplete="off"
-                tabindex="3"
-              />
-              <div id="number-of-days-error" class="error-message">
-                <h5>Enter a valid number of days</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container" dir="ltr" id="container">
+        <div class="container" id="container">
           <h1>Currency Converter</h1>
 
           <div class="currency-section">
@@ -224,6 +189,51 @@
 
           <div class="rate-container"></div>
         </div>
+        <div id="form">
+          <div class="labels">
+            <label for="starting-balance">Initial Deposit</label>
+            <label for="rate-percentage">Annual Rate</label>
+            <label for="number-of-days">Number of Days</label>
+          </div>
+          <div class="inputs">
+            <div style="position: relative">
+              <input
+                id="starting-balance"
+                type="text"
+                placeholder="Starting Balance"
+                autocomplete="off"
+                tabindex="1"
+              />
+              <div id="starting-balance-error" class="error-message">
+                <h5>Enter a valid Starting Balance</h5>
+              </div>
+            </div>
+            <div style="position: relative">
+              <input
+                id="rate-percentage"
+                type="text"
+                placeholder="Annual Rate"
+                autocomplete="off"
+                tabindex="2"
+              />
+              <div id="rate-percentage-error" class="error-message">
+                <h5>Enter a valid Annual Rate</h5>
+              </div>
+            </div>
+            <div style="position: relative">
+              <input
+                id="number-of-days"
+                type="text"
+                placeholder="Number of Days"
+                autocomplete="off"
+                tabindex="3"
+              />
+              <div id="number-of-days-error" class="error-message">
+                <h5>Enter a valid number of days</h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <button
@@ -233,7 +243,7 @@
         class="primary-btn"
         tabindex="4"
       >
-        اتفضل احسب
+        Calculate
       </button>
 
       <div id="div">

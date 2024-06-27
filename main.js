@@ -19,20 +19,20 @@ function calculateInterest(startingBalance, annualRate, numberOfDays) {
     totalInterest += dailyInterest;
 
     let paragraph = document.createElement("p");
-    paragraph.textContent = `Day ${i} return: ${dailyInterest
+    paragraph.textContent = `Day ${i} return : ${dailyInterest
       .toFixed(2)
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
     paragraph.style.color = "red";
     paragraph.style.marginTop = "8px";
 
     let paragraph2 = document.createElement("p");
-    paragraph2.innerHTML = `:Total return after day ${i}<br>${totalInterest
+    paragraph2.innerHTML = `Total return after day ${i} :<br>${totalInterest
       .toFixed(2)
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
     paragraph2.style.color = "darkgreen";
 
     let paragraph3 = document.createElement("p");
-    paragraph3.innerHTML = ` :Total Account Balance<br>${(
+    paragraph3.innerHTML = `Total Account Balance :<br>${(
       initialStartingBalance + totalInterest
     )
       .toFixed(2)
@@ -239,7 +239,7 @@ window.onscroll = function () {
       return;
     }
 
-    if (window.scrollY > 300) {
+    if (window.scrollY > 800) {
       backToTopBtn.style.display = "block";
       div.style.display = "none"; // Hide the div when scrolling beyond 300 pixels
     } else {
