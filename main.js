@@ -308,7 +308,7 @@ let conversionRates = {};
 
 async function fetchRates(fromCurr) {
   const response = await fetch(
-    `https://v6.exchangerate-api.com/v6/1469b81e4f01a05326bfe467/latest/${fromCurr}`
+    `https://v6.exchangerate-api.com/v6/8ae6c529bc490204f262d13b/latest/${fromCurr}`
   );
   const data = await response.json();
   conversionRates[fromCurr] = data.conversion_rates;
