@@ -7,15 +7,11 @@
 }
 body {
   font-family: "Times New Roman", Times, serif;
-  text-align: center;
   position: relative;
 }
 body::before {
   content: "";
-  background-image: url("landing.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #f0f0f0;
   position: absolute;
   opacity: 1;
   top: 0;
@@ -24,47 +20,60 @@ body::before {
   height: 100%;
   z-index: -1;
 }
-body::after {
-  content: "";
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+
 header {
   background-color: rgba(0, 0, 0, 0.09);
   padding: 20px;
-  color: white;
+  color: #455bb1;
   text-align: center;
   position: relative;
   z-index: 1;
 }
-#fkra {
-  color: gold;
-  line-height: 1.5;
+.margin1 {
+  /* max-width: 80%; */
+  margin: auto;
+  padding: 25px 10px 0 10px;
+  text-align: center;
 }
-h1 {
-  padding: 15px;
-  color: aqua;
+.margin1 p {
+  font-size: 14px;
+  font-weight: 600;
 }
-h3 {
-  color: #ffffff;
+.margin {
+  /* max-width: 992px; */
+  text-align: left;
+  margin: auto;
+  padding: 40px;
+}
+.margin h3 {
+  color: #64666a;
+  background-color: #f7f7f7;
   padding: 10px;
-  font-weight: 900;
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 14px;
+  border-radius: 15px;
 }
-p {
-  font-size: 22px;
-  font-weight: 900;
-  color: #ddd;
+.margin #fkra hr {
+  margin: 12px auto;
+  width: 60%;
+}
+.margin h2 + p {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 10px;
+}
+.margin h2 + p + div {
+  text-align: center;
+  padding: 10px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #455bb1;
 }
 #compound-interest {
   text-align: left;
   margin: 20px;
+  color: #455bb1;
 }
 #compound-interest + p {
   text-align: left;
@@ -74,17 +83,33 @@ p {
   margin-top: 15px;
   font-weight: 600;
 }
-@media (max-width: 767px) {
-  header > p,
-  h3,
-  h4,
-  h5,
-  h2 {
-    font-size: 15px;
-    text-align: left;
+@media (max-width: 350px) {
+  header h1 {
+    font-size: 18px;
   }
+  #compound-interest {
+    font-size: 18px;
+  }
+}
+@media (max-width: 767px) {
   h1 {
     font-size: 24px;
+  }
+  .margin1 {
+    width: 100%;
+    padding: 25px 6px 0 6px;
+  }
+  .margin {
+    width: 100%;
+    padding: 40px 6px 0 6px;
+  }
+}
+@media (min-width: 768px) {
+  .margin1 {
+    max-width: 80%;
+  }
+  .margin {
+    max-width: 992px;
   }
 }
 main {
@@ -92,10 +117,7 @@ main {
   position: relative;
   z-index: 1;
 }
-video {
-  border-radius: 10px;
-  margin: 20px;
-}
+
 .holder {
   display: flex;
   justify-content: space-around;
@@ -104,31 +126,32 @@ video {
   margin-top: 30px;
 }
 .holder #form {
+  height: 600px;
   width: calc(50% - 15px);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 35px;
-  margin-bottom: 50px;
+  display: flex;
+  gap: 90px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 7px;
+  background-color: #e7e7e7;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+  backdrop-filter: blur(1px);
+}
+
+.holder #form .df {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: 7px;
 }
-.labels,
-.inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  justify-content: center;
-  align-items: flex-start;
-  /* height: 150px; */
+.holder #form div input {
+  position: relative;
+  right: 0;
 }
-.labels {
-  justify-content: space-around;
-}
+
 label {
   font-size: 20px;
-  color: #00ff00;
+  color: #455bb1;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -140,26 +163,36 @@ input {
   padding: 10px;
   transition: all 0.4s ease-in-out;
   width: 100%;
+  
 }
-/* @media (max-width: 400px) {
-  input {
-    width: 80%;
-  }
-} */
-input:focus {
-  border: 1px solid gold;
+.holder #form input:focus{
   box-shadow: 0 0 15px gold;
+  border: 1px solid yellow;
 }
-@media (max-width: 767px) {
-  video {
-    width: 100%;
-    margin: 0;
-    padding: 5px;
+@media (max-width: 350px) {
+  main {
+    padding: 0 10px 0 10px;
   }
-  #form {
-    width: 100%;
+  .holder #form .df {
+    justify-content: space-between;
+  }
+  .holder #form .df label {
+    font-size: 16px;
+    width: 70%;
   }
 }
+@media (max-width: 400px) {
+  
+  .holder #form .df label {
+    font-size: 16px;
+    width: 70%;
+  }
+  input:focus {
+    border: 1px solid gold;
+    box-shadow: 0 0 15px gold;
+  }
+}
+
 button {
   outline: none;
   border: none;
@@ -182,14 +215,6 @@ button {
   background-color: white;
   padding: 10px;
   line-height: 40px;
-}
-#output p {
-  font-size: 22px;
-}
-#value {
-  color: red;
-  font-weight: 900;
-  font-size: 30px;
 }
 #div {
   transition: all 0.3s ease-in-out;
@@ -281,12 +306,20 @@ button {
   line-height: 30px;
   display: none;
 }
+#output-container p{
+  font-size: 24px;
+  font-weight: 600;
+}
 @media (max-width: 767px) {
   #output-container {
     width: 100%;
     margin: 0;
-    font-size: 14px;
-    letter-spacing: 0.38px;
+    
+  }
+  #output-container p{
+    font-size: 20px;
+    letter-spacing: 0.6px;
+    font-weight: 900;
   }
 }
 /* Footer CSS */
@@ -323,17 +356,18 @@ input.error {
 
 .error-message {
   color: red;
-  /* font-size: 12px; */
-  display: none;
   position: absolute;
-  left: -4px;
+  left: 0;
+  top: 100%;
   padding-top: 2px;
-  /* font-weight: bold; */
+  display: none;
 }
+
 /* Currency Converter */
 
 .container {
-  background-color: rgba(255, 255, 255, 0.85);
+  height: 600px;
+  background-color: #e7e7e7;
   /* margin: 75px auto; */
   width: calc(50% - 15px);
   padding: 50px 30px;
@@ -378,6 +412,7 @@ input.error {
   font-size: 18px;
   border-right: 1px solid #aaa;
   height: 42px;
+  background-color: #f9f9f9;
 }
 .currency-section input:focus {
   box-shadow: 0 0 7px #888;
@@ -390,7 +425,7 @@ input.error {
   font-size: 18px;
   text-align: right;
   height: 42px;
-  background-color: #f9f9f9;
+  background-color: rgba(208,208,208,0.8);
 }
 
 .swap {
@@ -424,10 +459,13 @@ input.error {
   font-size: 1.5rem;
   margin-top: 10px;
 }
+#toggle-button-div {
+  text-align: center;
+}
 #toggle-button {
-  background-color: rgba(255, 255, 255, 0.85);
+  /* background-color: yellow; */
   backdrop-filter: blur(1px);
-  color: #455bb1;
+  /* color: #455bb1; */
 }
 #toggle-button i {
   font-size: 18px;
@@ -455,6 +493,23 @@ input.error {
     max-width: calc(100% - 15px);
   }
 }
+@media(max-width:550px){
+  .holder #form{
+    height:450px
+  }
+  .container {
+    height: 500px;
+  }
+  .holder #form{
+    gap: 70px;
+  }
+  #form h2{
+    margin:0;
+  }
+  .holder #form .df {
+    justify-content: space-between;
+  }
+}
 @media (max-width: 767px) {
   .holder {
     flex-direction: column;
@@ -474,7 +529,7 @@ input.error {
   .container .currency-section {
     width: 100%;
   }
-
+  
   .container .currency-section select {
     padding: 5px 10px 5px 5px;
     font-size: 12px;
@@ -490,18 +545,31 @@ input.error {
   }
 }
 @media (min-width: 768px) {
+  .holder #form h2{
+    font-size: 30px;
+  }
+  .holder #form label{
+    font-size: 19px;
+    width: 50%;
+  }
   .container {
     padding-left: 15px;
     padding-right: 15px;
   }
   .container h1 {
     padding: 0;
-    font-size: 35px;
+    font-size: 32px;
     width: 100%;
   }
   .container .currency-section {
     padding: 0;
     width: calc(100% - 25px);
+  }
+}
+@media(min-width:992px){
+  .holder #form label{
+    font-size: 24px;
+    
   }
 }
 @media (min-width: 1440px) {

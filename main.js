@@ -1,6 +1,6 @@
 let Btn = document.getElementById("btn");
 let BtnClicked = false;
-let inputFields = document.querySelectorAll("input");
+let inputFields = document.querySelectorAll("input:not(.cc-input)");
 let div = document.getElementById("div");
 let outputContainer = document.getElementById("output-container");
 let goToBottomBtn = document.getElementById("go-to-bottom");
@@ -37,7 +37,7 @@ function calculateInterest(startingBalance, annualRate, numberOfDays) {
     )
       .toFixed(2)
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
-    paragraph3.style.color="black";
+    paragraph3.style.color = "black";
     outputContainer.appendChild(paragraph);
     outputContainer.appendChild(paragraph2);
     outputContainer.appendChild(paragraph3);
@@ -50,7 +50,6 @@ function calculateInterest(startingBalance, annualRate, numberOfDays) {
       if (window.innerWidth <= 767) {
         // Set the width of <hr> element to 80%
         hr.style.width = "80%";
-        outputContainer.style.fontSize = "12px";
       } else {
         // For viewport widths greater than 767px, set the width to auto or any other value you prefer
         hr.style.width = "60%";
@@ -81,11 +80,6 @@ function parseFormattedNumber(value) {
 
 inputFields.forEach((input) => {
   input.oninput = function () {
-    // Skip formatting for currency converter input fields
-    if (this.id === "from-amount" || this.id === "to-amount") {
-      return;
-    }
-
     // Allow only numbers and a single dot
     let cursorPosition = this.selectionStart;
     let originalValue = this.value;
@@ -156,6 +150,8 @@ Btn.onclick = function () {
         input.parentNode.insertBefore(errorMessage, input.nextSibling);
       }
       errorMessage.style.display = "block";
+      outputContainer.innerHTML = "";
+      outputContainer.style.display = "none";
     } else {
       input.classList.remove("error");
       let errorMessage = input.nextElementSibling;

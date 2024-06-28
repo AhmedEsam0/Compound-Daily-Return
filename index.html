@@ -3,6 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="Compound Interest Rate,Compound Interest Daily Rate,Cumulative Interest Rate,Cumulative Daily Interest Rate ,Daily Interest Rate ,Daily Interest Rate Investement,
+      Interest rate,Daily Rate,Bank Investement,Compound Interest Rate Calculator,Compound Interest Daily Rate Calculator,Cumulative Interest Rate Calculator,
+      Cumulative Daily Interest Rate Calculator,Daily Interest Rate Calculator,Daily Interest Rate Investement Calculator,
+      Interest rate Calculator,Daily Rate Calculator,Bank Investement Calculator,compound interest rate,
+      compound interest daily rate,cumulative interest rate,cumulative daily interest rate ,daily interest rate ,
+      daily interest rate investement,Compound interest, Interest rate calculator, Compound interest calculator, Investment growth, Savings calculator, Financial calculator, Interest rates, Compound interest formula, Investment returns, Savings growth, Financial planning, Online interest calculator, Interest computation, Compounding interest, Investment calculator, Money growth calculator, Annual interest, Interest accumulation, Financial tools, Finance calculator, Compound interest table, Future value calculator, Interest rate comparison, Investment interest, Compound interest tool, Savings plan, Interest earnings, Calculate interest, Personal finance calculator,interest rate,daily rate,bank investement,compound interest rate calculator,
+      compound interest daily rate calculator,cumulative interest rate calculator,cumulative daily interest rate calculator,
+      daily interest rate calculator,daily interest rate investement calculator,interest rate calculator,daily rate calculator,
+      bank investement calculator,سعر الفائدة المركب, سعر الفائدة المركب اليومي, سعر الفائدة التراكمي, سعر الفائدة اليومي التراكمي, سعر الفائدة اليومي, استثمار سعر الفائدة اليومي, سعر الفائدة, السعر اليومي, الاستثمار البنكي, حاسبة سعر الفائدة المركبة, حاسبة سعر الفائدة اليومي المركب, حاسبة سعر الفائدة التراكمي, حاسبة سعر الفائدة اليومي التراكمي, حاسبة سعر الفائدة اليومي, حاسبة سعر الفائدة اليومي للاستثمار, حاسبة سعر الفائدة, حاسبة المعدل اليومي, حاسبة استثمار البنك, سعر الفائدة المركبة, سعر الفائدة اليومي المركب, سعر الفائدة التراكمي, سعر الفائدة اليومي التراكمي, سعر الفائدة اليومي, الاستثمار في سعر الفائدة اليومي, سعر الفائدة, السعر اليومي, الاستثمار البنكي, حاسبة سعر الفائدة المركب, حاسبة سعر الفائدة التراكمي اليومي, حاسبة سعر الفائدة التراكمي, حاسبة سعر الفائدة التراكمي اليومي, حاسبة سعر الفائدة التراكمي اليومي, حاسبة سعر الفائدة التراكمي اليومي, حاسبة سعر الفائدة التراكمي اليومي, حاسبة سعر الفائدة اليومي, حاسبة سعر الفائدة اليومي, حاسبة سعر الفائدة اليومي, حاسبة سعر الفائدة اليومي, فائدة مركبة, حاسبة معدل الفائدة, حاسبة الفائدة المركبة, نمو الاستثمار, حاسبة الادخار, حاسبة مالية, معدلات الفائدة, صيغة الفائدة المركبة, عوائد الاستثمار, نمو المدخرات, تخطيط مالي, حاسبة الفائدة عبر الإنترنت, حساب الفائدة, تراكم الفائدة, حاسبة الاستثمار, حاسبة نمو الأموال, فائدة سنوية, تراكم الفوائد, أدوات مالية, حاسبة التمويل, جدول الفائدة المركبة, حاسبة القيمة المستقبلية, مقارنة معدلات الفائدة, فوائد الاستثمار, أداة الفائدة المركبة, خطة الادخار, أرباح الفائدة, حساب الفائدة, حاسبة التمويل الشخصي, حاسبة الاستثمار البنكي, حساب الفائدة اليومية التراكمية, فائدة يومية تراكمية"
+    />
+    <meta name="description" content="">
+    <meta name="author" content="Ahmed Esam">
+
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -18,27 +33,31 @@
   <body>
     <header>
       <h1>Compound Interest Calculator</h1>
-      <h3>
+    </header>
+    <div class="margin1">
+      <p>
         See how your savings and investment account balances can grow with the
         magic of compound interest.
-      </h3>
+      </p>
+    </div>
+    <div class="margin">
       <h3 id="fkra">
         The investing information provided on this page is for educational
-        purposes only.<br /><br>Does not offer advisory or brokerage services, nor
-        does it recommend or advise investors to buy or sell particular stocks,
-        securities or other investments.
+        purposes only.<br />
+        <hr />
+        Does not offer advisory or brokerage services, nor does it recommend or
+        advise investors to buy or sell particular stocks, securities or other
+        investments.
       </h3>
       <h2 id="compound-interest">What is compound interest?</h2>
       <p>
         Compound interest is the interest you earn on your original money and on
-        the interest that keeps accumulating. <br /><br>
-        <div>
-          Compound interest allows your savings to grow faster over time.
-        </div>
+        the interest that keeps accumulating. <br />
+        Compound interest allows your savings to grow faster over time.
       </p>
-    </header>
+    </div>
     <main>
-      <video id="vid" src="Yalaa Beenaa.mp4" controls width="600px"></video>
+      <!-- <video id="vid" src="Yalaa Beenaa.mp4" controls width="600px"></video> -->
       <div id="toggle-button-div">
         <button id="toggle-button">
           Currency Converter &nbsp;<i
@@ -56,7 +75,7 @@
               type="number"
               placeholder="0"
               value="1"
-              class="from-amount"
+              class="from-amount cc-input"
               id="from-amount"
             />
             <select class="from-currency" id="from-currency">
@@ -124,7 +143,7 @@
               type="number"
               placeholder="0"
               value="1"
-              class="to-amount"
+              class="to-amount cc-input"
               id="to-amount"
             />
             <select class="to-currency" id="to-currency">
@@ -190,12 +209,11 @@
           <div class="rate-container"></div>
         </div>
         <div id="form">
-          <div class="labels">
+          <h2 style="display: block; text-align: center; color: #455bb1">
+            Investment Calculator
+          </h2>
+          <div class="df">
             <label for="starting-balance">Initial Deposit</label>
-            <label for="rate-percentage">Annual Rate</label>
-            <label for="number-of-days">Number of Days</label>
-          </div>
-          <div class="inputs">
             <div style="position: relative">
               <input
                 id="starting-balance"
@@ -208,6 +226,10 @@
                 <h5>Enter a valid Starting Balance</h5>
               </div>
             </div>
+          </div>
+
+          <div class="df">
+            <label for="rate-percentage">Annual Rate</label>
             <div style="position: relative">
               <input
                 id="rate-percentage"
@@ -220,6 +242,10 @@
                 <h5>Enter a valid Annual Rate</h5>
               </div>
             </div>
+          </div>
+
+          <div class="df">
+            <label for="number-of-days">Number of Days</label>
             <div style="position: relative">
               <input
                 id="number-of-days"
@@ -261,7 +287,7 @@
         <span class="material-symbols-outlined"> stat_minus_3 </span>
       </button>
 
-      <div id="output-container"></div>
+      <div id="output-container" style="text-align: center"></div>
     </main>
     <footer id="footer">
       <p>All rights reserved &copy; 2024</p>
